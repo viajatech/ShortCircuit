@@ -1,0 +1,6 @@
+import psutil
+
+for proc in psutil.process_iter(['pid', 'name']):
+    if proc.info['name'].lower() == "notepad.exe":
+        proc.kill()
+        print(f"Proceso {proc.info['name']} terminado.")
